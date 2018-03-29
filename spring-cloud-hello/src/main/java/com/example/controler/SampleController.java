@@ -16,9 +16,12 @@ public class SampleController {
 	@Value("${mysqldb.datasource.username}")
 	private String username;
 	
+	@Value("${redis.uri}")
+	private String redisPort;
+	
 	@ResponseBody
 	@RequestMapping("/hello")
 	String index() {
-		return "hello,"+ username;
+		return "hello,"+ username +":" + redisPort;
 	}
 }
